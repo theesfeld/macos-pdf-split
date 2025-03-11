@@ -9,10 +9,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4  # Updated to v4 for consistency
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5  # Updated to latest version
       with:
         python-version: '3.9'
 
@@ -27,7 +27,8 @@ jobs:
         zip -r pdfsplit-macos.zip dist/pdfsplit.app
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Updated to v4
       with:
         name: pdfsplit-macos
         path: pdfsplit-macos.zip
+        retention-days: 7  # Optional: Set how long the artifact is retained
